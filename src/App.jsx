@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero/Hero';
 import ABTestingSimulator from './components/ABTesting/ABTestingSimulator';
 import FunnelStrategy from './components/Funnel/FunnelStrategy';
+import ProgrammaticAds from './components/ProgrammaticAds/ProgrammaticAds';
+import DataScienceMMM from './components/DataScience/DataScienceMMM';
 
 // --- Styled Components ---
 const AppContainer = styled.div`
@@ -126,9 +128,10 @@ function App() {
         <NavLogo className="gradient-text-gold">NexusMarketing</NavLogo>
         <NavLinks>
           <NavLinkBase onClick={() => setActiveTab('home')} style={{ color: activeTab === 'home' ? 'var(--primary-neon)' : '' }}>Home</NavLinkBase>
-          <NavLinkBase onClick={() => setActiveTab('analytics')} style={{ color: activeTab === 'analytics' ? 'var(--primary-neon)' : '' }}>Analytics & ROAS</NavLinkBase>
           <NavLinkBase onClick={() => setActiveTab('abtest')} style={{ color: activeTab === 'abtest' ? 'var(--primary-neon)' : '' }}>A/B Simulator</NavLinkBase>
           <NavLinkBase onClick={() => setActiveTab('funnel')} style={{ color: activeTab === 'funnel' ? 'var(--primary-neon)' : '' }}>Funnel Strategy</NavLinkBase>
+          <NavLinkBase onClick={() => setActiveTab('programmatic')} style={{ color: activeTab === 'programmatic' ? 'var(--primary-neon)' : '' }}>RTB Architecture</NavLinkBase>
+          <NavLinkBase onClick={() => setActiveTab('mmm')} style={{ color: activeTab === 'mmm' ? 'var(--primary-neon)' : '' }}>Mix Modeling (MMM)</NavLinkBase>
         </NavLinks>
       </Navbar>
 
@@ -167,20 +170,26 @@ function App() {
               <FunnelStrategy />
             </motion.div>
           )}
-          {activeTab === 'analytics' && (
+          {activeTab === 'programmatic' && (
             <motion.div
-              key="analytics"
+              key="programmatic"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="glass-panel"
-              style={{ padding: '60px 40px', textAlign: 'center', marginTop: '40px' }}
             >
-              <h2 className="gradient-text">Analytics Dashboard</h2>
-              <p style={{ color: 'var(--text-secondary)', marginTop: '20px' }}>
-                Advanced ROAS tracking and Data Science integration coming soon.
-              </p>
+              <ProgrammaticAds />
+            </motion.div>
+          )}
+          {activeTab === 'mmm' && (
+            <motion.div
+              key="mmm"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <DataScienceMMM />
             </motion.div>
           )}
         </AnimatePresence>
